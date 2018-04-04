@@ -37,6 +37,7 @@ class game(object):
     def main(self):
         # Assigned: 
         # Main Life of Game : interaction
+        self.draw_board(self)
         i_got = input("Tell me to do something?")
         # use input to choose what the game plays
         self.place(self)

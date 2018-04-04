@@ -6,46 +6,9 @@ def get_player(i_num):
 
 def draw_board(game_board):
     # Draw the board
-
+    print("I am a board\n\n")
     game_board
 
-#/// <summary>
-#/// Write a full string with colours converted for the game (so we can have red/blue/gray/white/etc)
-#/// </summary>
-#/// <param name="msg">The string we need to convert and write on console</param>
-#let rec consColorWrite =
-#    fun (msg : string) ->
-#        let head = msg.Chars 0
-#        let newMsg = msg.Substring(1)
-#        match head with
-#        | 'X' ->
-#            System.Console.ForegroundColor<-System.ConsoleColor.Red
-#            System.Console.Write(head);
-#        | '0' ->
-#            System.Console.ForegroundColor<-System.ConsoleColor.Blue
-#            System.Console.Write(head);
-#        | '[' | ']' | '-' | '|' | '\\' | '/' | ',' ->
-#            System.Console.ForegroundColor<-System.ConsoleColor.DarkGray
-#            System.Console.Write(head);
-#        | a ->
-#            System.Console.ForegroundColor<-System.ConsoleColor.White
-#            System.Console.Write(head);
-#        match newMsg with
-#        | "" -> System.Console.WriteLine() // End line
-#        | _ -> consColorWrite newMsg
-#
-#/// <summary>
-#/// Conversion from 0,1,2 to a blank space or the character we want to show for the player
-#///  - as a side note, this should also be adjusted in consColorWrite for use if we adjust these
-#/// </summary>
-#/// <param name="item"></param>
-#let whatBoardDraws =
-#    fun item ->
-#        match item with
-#        | 0 -> ' '
-#        | 1 -> 'X'
-#        | 2 -> '0'
-#
 #/// <summary>
 #/// Convert the "int list" we keep the board in to a coloured grid on the console window
 #/// </summary>
@@ -72,16 +35,29 @@ def draw_board(game_board):
 #                                                  + lin10 + "\n" + lin11 + "\n" + lin12 + "\n" 
 #                                                  + lin13 + "\n";
 #        consColorWrite boundString
-#
+
+# Drawing in colours isnt important for this project, also it added difficulty
 #/// <summary>
-#/// Writes magenta text to the player to let them know that something was wrong
+#/// Write a full string with colours converted for the game (so we can have red/blue/gray/white/etc)
 #/// </summary>
-#/// <param name="msg">The message to tell them</param>
-#let writeError (msg : string) =
-#    System.Console.ForegroundColor<-System.ConsoleColor.Magenta
-#    System.Console.WriteLine(msg)
-#    System.Threading.Thread.Sleep(2000)
-#
-#let writeWin (msg : string) =
-#    System.Console.ForegroundColor<-System.ConsoleColor.DarkYellow
-#    System.Console.WriteLine(msg)
+#/// <param name="msg">The string we need to convert and write on console</param>
+#let rec consColorWrite =
+#    fun (msg : string) ->
+#        let head = msg.Chars 0
+#        let newMsg = msg.Substring(1)
+#        match head with
+#        | 'X' ->
+#            System.Console.ForegroundColor<-System.ConsoleColor.Red
+#            System.Console.Write(head);
+#        | '0' ->
+#            System.Console.ForegroundColor<-System.ConsoleColor.Blue
+#            System.Console.Write(head);
+#        | '[' | ']' | '-' | '|' | '\\' | '/' | ',' ->
+#            System.Console.ForegroundColor<-System.ConsoleColor.DarkGray
+#            System.Console.Write(head);
+#        | a ->
+#            System.Console.ForegroundColor<-System.ConsoleColor.White
+#            System.Console.Write(head);
+#        match newMsg with
+#        | "" -> System.Console.WriteLine() // End line
+#        | _ -> consColorWrite newMsg
