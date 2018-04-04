@@ -1,9 +1,3 @@
-def get_player(i_num):
-	options = {0 : " ",
-			   1 : "X",
-			   2 : "0"}
-	options[i_num]
-
 def draw_board(game_board):
     # Draw the board
     get_player_o = {0 : " ",
