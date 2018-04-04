@@ -1,10 +1,13 @@
-:: What we have here
+## What we have here
+
 Running the ".bat" file assumes you have python installed on your computer.
 
-:: Python Version
+## Python Version
+
 Ernest used Python version 3.6.5 from python.org
 
-:: Visual Studio
+## Visual Studio
+
 Note that there are a few things for this, firstly:
 Version: Visual Studio 2017
 
