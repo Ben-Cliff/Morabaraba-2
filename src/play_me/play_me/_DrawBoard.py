@@ -1,19 +1,14 @@
+def get_player(i_num):
+	options = {0 : " ",
+			   1 : "X",
+			   2 : "0"}
+	options[i_num]
+
 def draw_board(game_board):
     # Draw the board
 
     game_board
 
-#	module Drawing
-#
-#/// <summary>
-#/// Get a player's icon
-#/// </summary>
-#/// <param name="plyr">The player's number</param>
-#let getIcon plyr =
-#    match plyr with
-#    | 1 -> "X"
-#    | 2 -> "0"
-#
 #/// <summary>
 #/// Write a full string with colours converted for the game (so we can have red/blue/gray/white/etc)
 #/// </summary>
