@@ -6,35 +6,25 @@ def get_player(i_num):
 
 def draw_board(game_board):
     # Draw the board
-    print("I am a board\n\n")
+    get_player_o = {0 : " ",
+    				1 : "X",
+    				2 : "0"}
+    print("\n")
+    print("\t  \t1,2,3    4    5,6,7")
+    print("\t[A]\t" + get_player_o[game_board[0]] + "........" + get_player_o[game_board[1]] + "........" + get_player_o[game_board[2]] + "")
+    print("\t   \t|\       |       /|")
+    print("\t[B]\t| " + get_player_o[game_board[8]] + "......" + get_player_o[game_board[9]] + "......" + get_player_o[game_board[10]] + " |")
+    print("\t   \t| |\     |     /| |")
+    print("\t[C]\t| | " + get_player_o[game_board[16]] + "...." + get_player_o[game_board[17]] + "...." + get_player_o[game_board[18]] + " | |")
+    print("\t   \t| | |         | | |")
+    print("\t[D]\t" + get_player_o[game_board[7]] + "." + get_player_o[game_board[15]] + "." + get_player_o[game_board[23]] + "         " + get_player_o[game_board[19]] + "." + get_player_o[game_board[11]] + "." + get_player_o[game_board[3]] + " ")
+    print("\t   \t| | |         | | |")
+    print("\t[E]\t| | " + get_player_o[game_board[22]] + "...." + get_player_o[game_board[21]] + "...." + get_player_o[game_board[20]] + " | |")
+    print("\t   \t| |/     |     \| |")
+    print("\t[F]\t| " + get_player_o[game_board[14]] + "......" + get_player_o[game_board[13]] + "......" + get_player_o[game_board[12]] + " |")
+    print("\t   \t|/       |       \|")
+    print("\t[G]\t" + get_player_o[game_board[6]] + "........" + get_player_o[game_board[5]] + "........" + get_player_o[game_board[4]] + "\n\n")
     game_board
-
-#/// <summary>
-#/// Convert the "int list" we keep the board in to a coloured grid on the console window
-#/// </summary>
-#/// <param name="board">The tile set we are using</param>
-#let drawBoard =
-#    fun (board: int list) ->
-#        let lin00 =         "\t  \t1,2,3    4    5,6,7"
-#        let lin01 = sprintf "\t[A]\t%c--------%c--------%c" (whatBoardDraws (board.Item 0)) (whatBoardDraws (board.Item 1)) (whatBoardDraws (board.Item 2))
-#        let lin02 =         "\t   \t|\       |       /|"
-#        let lin03 = sprintf "\t[B]\t| %c------%c------%c |" (whatBoardDraws (board.Item 8)) (whatBoardDraws (board.Item 9)) (whatBoardDraws (board.Item 10))
-#        let lin04 =         "\t   \t| |\     |     /| |"
-#        let lin05 = sprintf "\t[C]\t| | %c----%c----%c | |" (whatBoardDraws (board.Item 16)) (whatBoardDraws (board.Item 17)) (whatBoardDraws (board.Item 18))
-#        let lin06 =         "\t   \t| | |         | | |"
-#        let lin07 = sprintf "\t[D]\t%c-%c-%c         %c-%c-%c" (whatBoardDraws (board.Item 7)) (whatBoardDraws (board.Item 15)) (whatBoardDraws (board.Item 23)) (whatBoardDraws (board.Item 19)) (whatBoardDraws (board.Item 11)) (whatBoardDraws (board.Item 3))
-#        let lin08 =         "\t   \t| | |         | | |"
-#        let lin09 = sprintf "\t[E]\t| | %c----%c----%c | |" (whatBoardDraws (board.Item 22)) (whatBoardDraws (board.Item 21)) (whatBoardDraws (board.Item 20))
-#        let lin10 =         "\t   \t| |/     |     \| |"
-#        let lin11 = sprintf "\t[F]\t| %c------%c------%c |" (whatBoardDraws (board.Item 14)) (whatBoardDraws (board.Item 13)) (whatBoardDraws (board.Item 12))
-#        let lin12 =         "\t   \t|/       |       \|"
-#        let lin13 = sprintf "\t[G]\t%c--------%c--------%c" (whatBoardDraws (board.Item 6)) (whatBoardDraws (board.Item 5)) (whatBoardDraws (board.Item 4))
-#        let boundString = "\n\n" + lin00 + "\n\n" + lin01 + "\n" + lin02 + "\n" + lin03 + "\n" 
-#                                                  + lin04 + "\n" + lin05 + "\n" + lin06 + "\n"
-#                                                  + lin07 + "\n" + lin08 + "\n" + lin09 + "\n" 
-#                                                  + lin10 + "\n" + lin11 + "\n" + lin12 + "\n" 
-#                                                  + lin13 + "\n";
-#        consColorWrite boundString
 
 # Drawing in colours isnt important for this project, also it added difficulty
 #/// <summary>
