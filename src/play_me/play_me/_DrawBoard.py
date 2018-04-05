@@ -18,7 +18,6 @@ def draw_board(game_board):
     print("\t[F]\t| " + get_player_o[game_board[14]] + "......" + get_player_o[game_board[13]] + "......" + get_player_o[game_board[12]] + " |")
     print("\t   \t|/       |       \|")
     print("\t[G]\t" + get_player_o[game_board[6]] + "........" + get_player_o[game_board[5]] + "........" + get_player_o[game_board[4]] + "\n\n")
-    return game_board
 
 # Drawing in colours isnt important for this project, also it added difficulty
 #/// <summary>
