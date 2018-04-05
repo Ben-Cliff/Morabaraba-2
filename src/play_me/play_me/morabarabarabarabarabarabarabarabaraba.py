@@ -12,12 +12,13 @@ class game(object):
     def draw_board(self):
         # Assigned: Ernest
         # draw the board
-        self.game_board = _DrawBoard.draw_board(self.game_board)
+        print(" ~~~ " + str(self.game_board))
+        _DrawBoard.draw_board(self.game_board)
 
     def place(self):
         # Assigned: 
         # get input and place
-        self.game_board = _PlaceCow.place(self.game_board)
+        self.game_board = _PlaceCow.place(self)
 
     def move(self, can_it_fly):
         # Assigned: 
@@ -38,9 +39,10 @@ class game(object):
         # Assigned: 
         # Main Life of Game : interaction
         self.draw_board(self)
-        i_got = input("Tell me to do something?")
+        i_got = input("Tell me to do something? ")
         # use input to choose what the game plays
-        self.place(self)
+        self.game_board = self.place(self)
+        print("- 4. game board to: " + str(self.game_board))
 
     def define_game_board(self):
         self.game_board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
