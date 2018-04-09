@@ -79,12 +79,21 @@ class game(object):
         
         self.draw_board(self)
         
+        move_posibilities = ["1", "2", "3", "4"]
+
         # Ernest do the code working out which options are available
+        if self.whosTurn==_PlayerData.PlayerType.RED:
+            if self.player1.cows==0:
+                move_posibilities.remove("1")
+        else:
+            if self.player2.cows==0:
+                move_posibilities.remove("1")
+
         print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
         # get which play option
-        i_got = input("\tSo which would you like to do?\n\t\t")
-        while not i_got in ["1", "2", "3", "4"]:
-            i_got = input(" ~ Oops, that isn't possible, please try again:\n")
+        i_got = input("\tSo which would you like to do?\n\tYour available options are " + str(move_posibilities) + "\n\t\t")
+        while not i_got in move_posibilities:
+            i_got = input(" ~ Oops, that isn't possible, please try again:\n\t\t")
         # get where to play
         then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
         while not then_got in _DataStructures.allPositions:
@@ -109,8 +118,8 @@ class game(object):
 g = game
 g.game_board = _DataStructures.flatboard
 
-g.player1 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.RED)
-g.player2 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.BLUE)
+g.player1 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.RED)
+g.player2 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.BLUE)
 g.whosTurn = _PlayerData.PlayerType.RED
 
 while True:
