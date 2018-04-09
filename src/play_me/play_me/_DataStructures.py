@@ -1,7 +1,5 @@
 import _PlayerData
 
-from enum import Enum
-
 #Data structures
 flatboard = [_PlayerData.PlayerType.NOT] * 27
 

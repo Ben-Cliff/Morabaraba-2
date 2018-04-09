@@ -82,12 +82,22 @@ class game(object):
         move_posibilities = ["1", "2", "3", "4"]
 
         # Ernest do the code working out which options are available
+        # 1 testing - place
         if self.whosTurn==_PlayerData.PlayerType.RED:
             if self.player1.cows==0:
                 move_posibilities.remove("1")
         else:
             if self.player2.cows==0:
                 move_posibilities.remove("1")
+        # 2 testing - move
+        if self.whosTurn==_PlayerData.PlayerType.RED:
+            if not self.player1.cows==0:
+                move_posibilities.remove("2")
+        else:
+            if not self.player2.cows==0:
+                move_posibilities.remove("2")
+
+
 
         print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
         # get which play option
@@ -113,6 +123,9 @@ class game(object):
             game_board = self.shoot(self, then_got)
         if i_got == "4":
             game_board = self.is_there_a_mill_for(self, then_got)
+
+        # Check if game ends here
+
         self.game_board = game_board
 
 g = game
