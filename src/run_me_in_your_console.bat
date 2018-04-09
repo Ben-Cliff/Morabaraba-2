@@ -1,1 +1,0 @@
-start py play_me/play_me/morabarabarabarabarabarabarabarabaraba.py >> test.txt
