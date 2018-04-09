@@ -4,6 +4,7 @@ class PlayerType(Enum):
     BLUE = 2
     NOT = 0
 
+# Get the name of the player to use in your code from the data type
 def whatName(_num):
     if _num==PlayerType.RED:
         return "RED"
