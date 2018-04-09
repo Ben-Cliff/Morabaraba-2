@@ -33,6 +33,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_DrawBoard.py" />
+    <Compile Include="_PlayerData.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_ShootCow.py">
       <SubType>Code</SubType>
     </Compile>

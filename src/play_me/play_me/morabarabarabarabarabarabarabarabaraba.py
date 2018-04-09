@@ -5,6 +5,10 @@ import _MoveCow
 import _ShootCow
 import _IsMillFor
 
+W  = '\033[0m'  # white (normal)
+R  = '\033[31m' # red
+B  = '\033[34m' # blue
+
 class game(object):
     # Replace item at position in list
     # def board_replace(whre,wht):
@@ -15,10 +19,10 @@ class game(object):
         # draw the board
         _DrawBoard.draw_board(self.game_board)
 
-    def place(self, player, i_got):
+    def place(self, i_got):
         # Assigned: 
         # get input and place
-        game_board = _PlaceCow.place(self, player, i_got)
+        game_board = _PlaceCow.place(self, i_got)
         return game_board
 
     def move(self, can_it_fly, i_got):
@@ -39,13 +43,44 @@ class game(object):
     def main(self):
         # Assigned: 
         # Main Life of Game : interaction
-        self.draw_board(self)
 
         # swap turns
         if self.whosTurn==_PlayerData.PlayerType.RED:
             self.whosTurn = _PlayerData.PlayerType.BLUE
         else:
             self.whosTurn = _PlayerData.PlayerType.RED
+
+        if self.whosTurn==_PlayerData.PlayerType.RED:
+            # Red
+            print(R + "\n" +
+                  "\t  ██▀███  ▓█████ ▓█████▄ \n" + 
+                  "\t ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌\n" + 
+                  "\t ▓██ ░▄█ ▒▒███   ░██   █▌\n" + 
+                  "\t ▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌\n" + 
+                  "\t ░██▓ ▒██▒░▒████▒░▒████▓ \n" + 
+                  "\t ░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ \n" + 
+                  "\t   ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒ \n" + 
+                  "\t   ░░   ░    ░    ░ ░  ░ \n" + 
+                  "\t    ░        ░  ░   ░    \n" + 
+                  "\t                  ░      \n" + 
+                  "\n" + W)
+        else:
+            # Blue
+            print(B + "\n" +
+                  "\t                                 \n" +
+                  "\t  ▄▄▄▄    ██▓     █    ██ ▓█████ \n" +
+                  "\t ▓█████▄ ▓██▒     ██  ▓██▒▓█   ▀ \n" +
+                  "\t ▒██▒ ▄██▒██░    ▓██  ▒██░▒███   \n" +
+                  "\t ▒██░█▀  ▒██░    ▓▓█  ░██░▒▓█  ▄ \n" +
+                  "\t ░▓█  ▀█▓░██████▒▒▒█████▓ ░▒████▒\n" +
+                  "\t ░▒▓███▀▒░ ▒░▓  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░\n" +
+                  "\t ▒░▒   ░ ░ ░ ▒  ░░░▒░ ░ ░  ░ ░  ░\n" +
+                  "\t  ░    ░   ░ ░    ░░░ ░ ░    ░   \n" +
+                  "\t  ░          ░  ░   ░        ░  ░\n" +
+                  "\t       ░                         \n" +
+                  "\n" + W)
+        
+        self.draw_board(self)
         
         # Ernest do the code working out which options are available
         print("\nCurrently every option is available for a " + _PlayerData.whatName(self.whosTurn) + " :\n" + 
@@ -67,7 +102,7 @@ class game(object):
         
         # use input to choose what the game plays
         if i_got == "1":
-            game_board = self.place(self, self.whosTurn, then_got)
+            game_board = self.place(self, then_got)
             if self.whosTurn==_PlayerData.PlayerType.RED:
                 g.player1.cows = g.player1.cows - 1
             else:
