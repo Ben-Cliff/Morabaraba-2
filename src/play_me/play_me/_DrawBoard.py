@@ -1,8 +1,10 @@
+import _PlayerData
+
 def draw_board(game_board):
     # Draw the board
-    get_player_o = {0 : " ",
-    				1 : "X",
-    				2 : "0"}
+    get_player_o = {_PlayerData.PlayerType.NOT : " ",
+    				_PlayerData.PlayerType.RED : "X",
+    				_PlayerData.PlayerType.BLUE : "0"}
     print("\n")
     print("\t  \t1,2,3    4    5,6,7")
     print("\t[A]\t" + get_player_o[game_board[0]] + "........" + get_player_o[game_board[1]] + "........" + get_player_o[game_board[2]] + "")

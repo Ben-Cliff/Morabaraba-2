@@ -1,3 +1,4 @@
+import _PlayerData
 import _DrawBoard
 import _PlaceCow
 import _MoveCow
@@ -14,10 +15,10 @@ class game(object):
         # draw the board
         _DrawBoard.draw_board(self.game_board)
 
-    def place(self, i_got):
+    def place(self, player, i_got):
         # Assigned: 
         # get input and place
-        game_board = _PlaceCow.place(self, i_got)
+        game_board = _PlaceCow.place(self, player, i_got)
         return game_board
 
     def move(self, can_it_fly, i_got):
@@ -39,8 +40,15 @@ class game(object):
         # Assigned: 
         # Main Life of Game : interaction
         self.draw_board(self)
+
+        # swap turns
+        if self.whosTurn==_PlayerData.PlayerType.RED:
+            self.whosTurn = _PlayerData.PlayerType.BLUE
+        else:
+            self.whosTurn = _PlayerData.PlayerType.RED
         
-        print("\nCurrently every option is available for a player:\n" + 
+        # Ernest do the code working out which options are available
+        print("\nCurrently every option is available for a " + _PlayerData.whatName(self.whosTurn) + " :\n" + 
               "1 = place, 2 = move, 3 = shoot, 4 = is mill\n" +
               "Essentially this allows us to test and debug by changing any values we need to test code\n")
         # get which play option
@@ -51,13 +59,19 @@ class game(object):
         # get where to play
         then_got = input("\n\nNow please tell me, which row and column do you want to do this?\n" +
                          "  (Note: format being <row><column> e.g. 'e4' is accepted as the input, dont leave spaces)\n")
-        while not then_got in ["a1"]:
+        while not then_got in ["a1", "a4", "a7", "b2", "b4", "b6", "c3", "c4", "c5", "d1", "d2", "d3", "d5", "d6", "d7", "e5", "e6", "e7", "f2", "f4", "f6", "g1", "g4", "g7"]:
             then_got  = input(" ~ Woops! That isnt possible for that move currently, sorry\n" +
-                              "Please tell me, which row and column do you want to do this? (remember format note)");
+                              "    (currently every board option is available)" + 
+                              "    Please tell me, which row and column do you want to do this? (remember format note)");
+        # Ernest do the handling for whats available, etc
         
         # use input to choose what the game plays
         if i_got == "1":
-            game_board = self.place(self, then_got)
+            game_board = self.place(self, self.whosTurn, then_got)
+            if self.whosTurn==_PlayerData.PlayerType.RED:
+                g.player1.cows = g.player1.cows - 1
+            else:
+                g.player2.cows = g.player2.cows - 1
         if i_got == "2":
             game_board = self.move(self, False, then_got)
         if i_got == "3":
@@ -67,7 +81,12 @@ class game(object):
         self.game_board = game_board
 
 g = game
-g.game_board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+g.game_board = [_PlayerData.PlayerType.NOT] * 27
+
+g.player1 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.RED)
+g.player2 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.BLUE)
+g.whosTurn = _PlayerData.PlayerType.RED
+
 while True:
-    print("\n\n ~ ~ ~ ~ ~  ~ ~ ~ ~ ~  ~ ~ ~ ~ ~ \n\n") # Only added to see all "code" play together
+    print("\n\n ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \n\n") # Only added to see all "code" play together
     g.main(g)
