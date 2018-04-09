@@ -1,13 +1,10 @@
+import _DataStructures
 import _PlayerData
 import _DrawBoard
 import _PlaceCow
 import _MoveCow
 import _ShootCow
 import _IsMillFor
-
-W  = '\033[0m'  # white (normal)
-R  = '\033[31m' # red
-B  = '\033[34m' # blue
 
 class game(object):
     # Replace item at position in list
@@ -52,7 +49,7 @@ class game(object):
 
         if self.whosTurn==_PlayerData.PlayerType.RED:
             # Red
-            print(R + "\n" +
+            print(_DataStructures.RED + 
                   "\t  ██▀███  ▓█████ ▓█████▄ \n" + 
                   "\t ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌\n" + 
                   "\t ▓██ ░▄█ ▒▒███   ░██   █▌\n" + 
@@ -63,10 +60,10 @@ class game(object):
                   "\t   ░░   ░    ░    ░ ░  ░ \n" + 
                   "\t    ░        ░  ░   ░    \n" + 
                   "\t                  ░      \n" + 
-                  "\n" + W)
+                  _DataStructures.WHITE)
         else:
             # Blue
-            print(B + "\n" +
+            print(_DataStructures.BLUE +
                   "\t                                 \n" +
                   "\t  ▄▄▄▄    ██▓     █    ██ ▓█████ \n" +
                   "\t ▓█████▄ ▓██▒     ██  ▓██▒▓█   ▀ \n" +
@@ -78,26 +75,20 @@ class game(object):
                   "\t  ░    ░   ░ ░    ░░░ ░ ░    ░   \n" +
                   "\t  ░          ░  ░   ░        ░  ░\n" +
                   "\t       ░                         \n" +
-                  "\n" + W)
+                  _DataStructures.WHITE)
         
         self.draw_board(self)
         
         # Ernest do the code working out which options are available
-        print("\nCurrently every option is available for a " + _PlayerData.whatName(self.whosTurn) + " :\n" + 
-              "1 = place, 2 = move, 3 = shoot, 4 = is mill\n" +
-              "Essentially this allows us to test and debug by changing any values we need to test code\n")
+        print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
         # get which play option
-        i_got = input(" So what would you like to do?\n\n")
+        i_got = input("\tSo which would you like to do?\n\t\t")
         while not i_got in ["1", "2", "3", "4"]:
-            i_got = input(" ~ Woops, that isnt an option.\n" + 
-                          "So what would you like to do?\n\n")
+            i_got = input(" ~ Oops, that isn't possible, please try again:\n")
         # get where to play
-        then_got = input("\n\nNow please tell me, which row and column do you want to do this?\n" +
-                         "  (Note: format being <row><column> e.g. 'e4' is accepted as the input, dont leave spaces)\n")
-        while not then_got in ["a1", "a4", "a7", "b2", "b4", "b6", "c3", "c4", "c5", "d1", "d2", "d3", "d5", "d6", "d7", "e5", "e6", "e7", "f2", "f4", "f6", "g1", "g4", "g7"]:
-            then_got  = input(" ~ Woops! That isnt possible for that move currently, sorry\n" +
-                              "    (currently every board option is available)" + 
-                              "    Please tell me, which row and column do you want to do this? (remember format note)");
+        then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
+        while not then_got in _DataStructures.allPositions:
+            then_got  = input(" ~ Woops! That isnt possible, please try another option: ");
         # Ernest do the handling for whats available, etc
         
         # use input to choose what the game plays
@@ -116,12 +107,12 @@ class game(object):
         self.game_board = game_board
 
 g = game
-g.game_board = [_PlayerData.PlayerType.NOT] * 27
+g.game_board = _DataStructures.flatboard
 
 g.player1 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.RED)
 g.player2 = _PlayerData.PlayerClass(20, _PlayerData.PlayerType.BLUE)
 g.whosTurn = _PlayerData.PlayerType.RED
 
 while True:
-    print("\n\n ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \n\n") # Only added to see all "code" play together
+    print("\n    ~~~~    \n") # Only added to see all "code" play together
     g.main(g)

@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="morabarabarabarabarabarabarabarabaraba.py" />
+    <Compile Include="_DataStructures.py" />
     <Compile Include="_IsMillFor.py">
       <SubType>Code</SubType>
     </Compile>
