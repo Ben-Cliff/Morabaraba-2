@@ -10,9 +10,10 @@ mills = [[0,8,16], [1,9,17], [2,10,18], [3,11,19], [4,12,20], [5,13,21], [6,14,2
 WHITE  = '\033[0m'  # White (normal)
 RED    = '\033[31m' # Red
 BLUE   = '\033[36m' # Blue
+GRAY   = '\033[90m' # Grey
 
 allPositions = ["a1", "a4", "a7", "d7", "g7", "g4", "g1", "d1", "b2", "b4", "b6", "d6", "f6", "f4", "f2", "d2", "c3", "c4", "c5", "d5", "e5", "e4", "e3", "d3"]
 
 get_player_icon = {_PlayerData.PlayerType.NOT : " ",
-	_PlayerData.PlayerType.RED : RED + "X" + WHITE,
-	_PlayerData.PlayerType.BLUE : BLUE + "0" + WHITE}
+	_PlayerData.PlayerType.RED : RED + "X" + GRAY,
+	_PlayerData.PlayerType.BLUE : BLUE + "0" + GRAY}

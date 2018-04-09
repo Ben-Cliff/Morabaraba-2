@@ -3,6 +3,7 @@ import _DataStructures
 
 def draw_board(game_board):
     # Draw the board
+    print(_DataStructures.GRAY)
     print("\t  \t1,2,3    4    5,6,7")
     print("\t[A]\t" + _DataStructures.get_player_icon[game_board[0]] + "........" + _DataStructures.get_player_icon[game_board[1]] + "........" + _DataStructures.get_player_icon[game_board[2]] + "")
     print("\t   \t|\       |       /|")
@@ -17,3 +18,4 @@ def draw_board(game_board):
     print("\t[F]\t| " + _DataStructures.get_player_icon[game_board[14]] + "......" + _DataStructures.get_player_icon[game_board[13]] + "......" + _DataStructures.get_player_icon[game_board[12]] + " |")
     print("\t   \t|/       |       \|")
     print("\t[G]\t" + _DataStructures.get_player_icon[game_board[6]] + "........" + _DataStructures.get_player_icon[game_board[5]] + "........" + _DataStructures.get_player_icon[game_board[4]] + "\n")
+    print(_DataStructures.WHITE)
