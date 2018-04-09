@@ -114,7 +114,7 @@ class game(object):
         if i_got == "1":
             game_board = self.place(self, then_got)
             if self.whosTurn==_PlayerData.PlayerType.RED:
-                g.player1.cows = g.player1.cows - 1
+                g.player1.cows = g.player1.cows - 1                 #when 0 , placing no longer possible
             else:
                 g.player2.cows = g.player2.cows - 1
         if i_got == "2":
@@ -125,6 +125,12 @@ class game(object):
             game_board = self.is_there_a_mill_for(self, then_got)
 
         # Check if game ends here
+        if self.whosTurn==_PlayerData.PlayerType.RED:
+            if self.player2.cows==2:
+                input("BLUE LOST")
+        else:
+            if self.player1.cows==2:
+                input("RED LOST")
 
         self.game_board = game_board
 
