@@ -41,7 +41,6 @@ def pick_valid_spot(game_board, option, player, msg, err):      #Options: 1-Empt
 
             if (game_board[x]==player) and (_IsMillFor.is_there_a_mill_for(game_board[x],game_board, _DataStructures.allPositions[x]) == False):
                 avail.append(_DataStructures.allPositions[x])
-        print(avail)
         then_got = input("\t" + msg + "\n\t\t")
         while (not then_got in avail):
             
