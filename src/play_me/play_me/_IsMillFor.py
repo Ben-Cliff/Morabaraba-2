@@ -1,5 +1,5 @@
 import _DataStructures
-import _ShootCow            #cow shooting in mill check method
+
 
 def is_there_a_mill_for(player,game_board, i_got):
 
@@ -38,12 +38,16 @@ def is_there_a_mill_for(player,game_board, i_got):
                 if valb == player :
                        valc = game_board[mill_filled[2]]                             #mill formed!
                        if valc == player :
-                           return _ShootCow.shoot()
-                                                                                    
+                           return true
+    
+
+     return false                                                                               
+
+#Note Interactive message needs to be sent to player to state whether a mill has been found or not
 
 
-
-
+ame_baord, player)
+    return game_b
          
 
         
@@ -54,4 +58,4 @@ def is_there_a_mill_for(player,game_board, i_got):
 
     #if mill formed
     #   return shoot(game_baord, player)
-    return game_board
+    #return game_board
