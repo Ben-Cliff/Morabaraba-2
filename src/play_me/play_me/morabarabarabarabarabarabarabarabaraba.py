@@ -5,6 +5,7 @@ import _PlaceCow
 import _MoveCow
 import _ShootCow
 import _IsMillFor
+import _PickMove
 
 '''
 	This is the main game class, we use a loop around main where
@@ -167,9 +168,10 @@ class game(object):
         while not i_got in move_posibilities:
             i_got = input(" ~ Oops, that isn't possible, please try again:\n\t\t")
         # get where to play
-        then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
-        while not then_got in _DataStructures.allPositions:
-            then_got  = input(" ~ Woops! That isnt possible, please try another option: ");
+        then_got = _PickMove.pick_valid_spot(self.game_board, 1, self.whosTurn, "", "")
+        #then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
+        #while not then_got in _DataStructures.allPositions:
+        #    then_got  = input(" ~ Woops! That isnt possible, please try another option: ");
         
         # use input to choose what the game plays
 		# [spot X]
