@@ -24,11 +24,9 @@ def is_there_a_mill_for(player,game_board, i_got):
     for x in range(len(_DataStructures.mills)) :
         look_mill = _DataStructures.mills[x]
         for y in range(len(look_mill)):
-            if translated_input == translated_input :
+            if translated_input == look_mill[y] :
                 fine_tuned.append(look_mill)                                        #Potential mill found, added to list
                 
-    
-
     #inspect fine_tuned for other tiles
     for x in range(len(fine_tuned)):
         mill_filled = fine_tuned[x]
