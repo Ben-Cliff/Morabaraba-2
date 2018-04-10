@@ -41,13 +41,11 @@ def is_there_a_mill_for(player,game_board, i_got):
                            return true
     
 
-     return false                                                                               
+    return false                                                                               
 
 #Note Interactive message needs to be sent to player to state whether a mill has been found or not
 
 
-ame_baord, player)
-    return game_b
          
 
         
