@@ -5,8 +5,8 @@
 import _DataStructures
 import _PlayerData
 import _PickMove
+import _IsMillFor
 
-import time
 
 # Place a cow
 #  -> i_got is the string input we accepted in main and received in this external function call
@@ -32,7 +32,10 @@ def place(self):
     # Let the player know with a certain amount of time
 	#   -> just so it doesnt instantly show the next turn
     print('\nNeat, you placed one!\n')
-    time.sleep(2)
+
+    is_there_mill = _IsMillFor.is_there_a_mill_for(self.whosTurn, self.game_board, _DataStructures.allPositions[then_got])
+    if is_there_mill:
+        self.shoot(self,self.whosTurn, self.game_board)
     
 	# finally like I shared before we currently return the updated board
 	#   -> we will remove this later unless we find a need to keep it

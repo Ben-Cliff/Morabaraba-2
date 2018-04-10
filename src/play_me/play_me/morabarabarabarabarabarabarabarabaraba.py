@@ -56,7 +56,8 @@ class game(object):
     def shoot(self, player, game_board):
         # Assigned: 
         # kill a cow
-        return _ShootCow.shoot(self.game_board, i_got)
+
+        return _ShootCow.shoot(self.whosTurn ,self.game_board)
 
     def is_there_a_mill_for(self, i_got):
         # Assigned: 
@@ -221,8 +222,8 @@ g.game_board = _DataStructures.flatboard
 
 # we create player 1 and player 2, the number of cows they can place it the "3" currently for our testing
 #  -> we can adjust this as much as we want for testing
-g.player1 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.RED) 
-g.player2 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.BLUE)
+g.player1 = _PlayerData.PlayerClass(0, _PlayerData.PlayerType.RED) 
+g.player2 = _PlayerData.PlayerClass(0, _PlayerData.PlayerType.BLUE)
 
 # The first player ISNT what we set here since the call to Game.main swaps to the other player
 #  -> the "swap" doesnt matter, its mostly for choosing who first is and the same either way
