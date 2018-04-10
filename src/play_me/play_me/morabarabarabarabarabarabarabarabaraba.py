@@ -42,18 +42,18 @@ class game(object):
         # draw the board
         _DrawBoard.draw_board(self.game_board) 
 
-    def place(self, i_got):
+    def place(self):
         # Assigned: 
         # get input and place
-        game_board = _PlaceCow.place(self, i_got)
+        game_board = _PlaceCow.place(self)
         return game_board
 
-    def move(self, can_it_fly, i_got):
+    def move(self, can_it_fly):
         # Assigned: 
         # pick a spot then move it
-        return _MoveCow.move(self.game_board, False, i_got)
+        return _MoveCow.move(self.game_board, False, self.whosTurn)
 
-    def shoot(self, i_got):
+    def shoot(self):
         # Assigned: 
         # kill a cow
         return _ShootCow.shoot(self.game_board, i_got)
@@ -168,7 +168,7 @@ class game(object):
         while not i_got in move_posibilities:
             i_got = input(" ~ Oops, that isn't possible, please try again:\n\t\t")
         # get where to play
-        then_got = _PickMove.pick_valid_spot(self.game_board, 1, self.whosTurn, "", "")
+        #then_got = _PickMove.pick_valid_spot(self.game_board, 1, self.whosTurn, "", "")
         #then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
         #while not then_got in _DataStructures.allPositions:
         #    then_got  = input(" ~ Woops! That isnt possible, please try another option: ");
@@ -176,17 +176,17 @@ class game(object):
         # use input to choose what the game plays
 		# [spot X]
         if i_got == "1":
-            game_board = self.place(self, then_got)
+            game_board = self.place(self)
             if self.whosTurn==_PlayerData.PlayerType.RED:
                 g.player1.cows = g.player1.cows - 1                 #when 0 , placing no longer possible, this is where we check if they still have the "placement" move
             else:
                 g.player2.cows = g.player2.cows - 1
         if i_got == "2":
-            game_board = self.move(self, False, then_got)
+            game_board = self.move(self, False)
         if i_got == "3":
-            game_board = self.shoot(self, then_got)
+            game_board = self.shoot(self)
         if i_got == "4":
-            game_board = self.is_there_a_mill_for(self, then_got)
+            game_board = self.is_there_a_mill_for(self, i_got)
 
         # Check if game ends here
 		# Is it player RED?
