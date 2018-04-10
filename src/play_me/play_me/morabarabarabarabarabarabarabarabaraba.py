@@ -101,6 +101,7 @@ class game(object):
                   "\t   ░░   ░    ░    ░ ░  ░ \n" + 
                   "\t    ░        ░  ░   ░    \n" + 
                   "\t                  ░      \n" + 
+                  "\t X X X X X X X X X X X X \n" +
                   _DataStructures.WHITE)
         else:
             # Blue
@@ -116,13 +117,14 @@ class game(object):
                   "\t  ░    ░   ░ ░    ░░░ ░ ░    ░   \n" +
                   "\t  ░          ░  ░   ░        ░  ░\n" +
                   "\t       ░                         \n" +
+                  "\t 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \n" +
                   _DataStructures.WHITE)
         
 		# Show the board                                                                              {self is the current status of the game. Board information (self.gameboard = at game start, 24 * PlayerType.Not) + player inforamtion (Determined state via cow count) }
         self.draw_board(self)      
         
 		# This list is what we will show to the player as the "moves they have available" and "can do"
-        move_posibilities = ["1", "2", "3", "4"]
+        move_posibilities = ["1", "2"] # , "3", "4"]
 
         # We need to add code for the options we add
 		#   -> essentially we check the moves available in a simple way
@@ -147,27 +149,16 @@ class game(object):
         else:
             if not self.player2.cows==0:
                 move_posibilities.remove("2")
-		# we will eventually remove these options, they are currently only here to test our code as we write it
-
-
-
-
-
-		# 3 testing - shoot
-
-
-
-		# 4 testing - mill
-
 
 		# here is the player input and essentially double checks it is what is available
 
 		#  -> eventually we will swap this to ONLY show which moves are available, it is just showing them all for our debugging
-        print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
-        # get which play option
-        i_got = input("\tSo which would you like to do?\n\tYour available options are " + str(move_posibilities) + "\n\t\t")
-        while not i_got in move_posibilities:
-            i_got = input(" ~ Oops, that isn't possible, please try again:\n\t\t")
+        #print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
+        ## get which play option
+        #i_got = input("\tSo which would you like to do?\n\tYour available options are " + str(move_posibilities) + "\n\t\t")
+        #while not i_got in move_posibilities:
+        #    i_got = input(" ~ Oops, that isn't possible, please try again:\n\t\t")
+        i_got = move_posibilities[0]
         # get where to play
         #then_got = _PickMove.pick_valid_spot(self.game_board, 1, self.whosTurn, "", "")
         #then_got = input("\tWhich row and column would you like to do this on? (format: <row><column> e.g. 'e4', dont leave spaces)\n\t\t")
@@ -222,8 +213,8 @@ g.game_board = _DataStructures.flatboard
 
 # we create player 1 and player 2, the number of cows they can place it the "3" currently for our testing
 #  -> we can adjust this as much as we want for testing
-g.player1 = _PlayerData.PlayerClass(0, _PlayerData.PlayerType.RED) 
-g.player2 = _PlayerData.PlayerClass(0, _PlayerData.PlayerType.BLUE)
+g.player1 = _PlayerData.PlayerClass(4, _PlayerData.PlayerType.RED) 
+g.player2 = _PlayerData.PlayerClass(4, _PlayerData.PlayerType.BLUE)
 
 # The first player ISNT what we set here since the call to Game.main swaps to the other player
 #  -> the "swap" doesnt matter, its mostly for choosing who first is and the same either way
