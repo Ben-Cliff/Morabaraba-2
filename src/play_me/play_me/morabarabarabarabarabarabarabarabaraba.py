@@ -62,6 +62,11 @@ class game(object):
         # Check the mills for this player
         return _IsMillFor.is_there_a_mill_for(self.game_board, i_got)
 
+
+
+#########################################################################################################################
+
+
     def main(self):
         # Assigned: 
         # Main Life of Game : interaction
@@ -111,8 +116,8 @@ class game(object):
                   "\t       ░                         \n" +
                   _DataStructures.WHITE)
         
-		# Show the board
-        self.draw_board(self)
+		# Show the board                                                                              {self is the current status of the game. Board information (self.gameboard = at game start, 24 * PlayerType.Not) + player inforamtion (Determined state via cow count) }
+        self.draw_board(self)      
         
 		# This list is what we will show to the player as the "moves they have available" and "can do"
         move_posibilities = ["1", "2", "3", "4"]
@@ -122,13 +127,17 @@ class game(object):
 		#      -> e.g. when you dont have cows left to place the option "1" is removed
 		#      -> similar e.g. when there are 0 cows left to place you are allowed to move
 		#         -> i.e. if a player has no cows to place he has a possibility to move
+
+
         # 1 testing - place
-        if self.whosTurn==_PlayerData.PlayerType.RED:
+        if self.whosTurn==_PlayerData.PlayerType.RED:                                               # {Can we place or not}
             if self.player1.cows==0:
                 move_posibilities.remove("1")
         else:
-            if self.player2.cows==0:
+            if self.player2.cows==0:                                
                 move_posibilities.remove("1")
+
+
         # 2 testing - move
         if self.whosTurn==_PlayerData.PlayerType.RED:
             if not self.player1.cows==0:
@@ -137,11 +146,20 @@ class game(object):
             if not self.player2.cows==0:
                 move_posibilities.remove("2")
 		# we will eventually remove these options, they are currently only here to test our code as we write it
+
+
+
+
+
 		# 3 testing - shoot
+
+
+
 		# 4 testing - mill
 
 
 		# here is the player input and essentially double checks it is what is available
+
 		#  -> eventually we will swap this to ONLY show which moves are available, it is just showing them all for our debugging
         print("You currently have the following options: 1 = place, 2 = move, 3 = shoot, 4 = is mill")
         # get which play option
@@ -178,25 +196,36 @@ class game(object):
             if game_board.count(self.player2.playerType)==2:
                 if self.player2.cows==0:
                     input("BLUE LOST")
-        else:
-            if game_board.count(self.player1.playerType)==2:
+        else:                   #gameboard.COUNT -> COUNTING ALL ACTIVE INSTANCES OF RED/BLUE HERD
+            if game_board.count(self.player1.playerType)==2:                              # Determine Red or Blue indivdual cow herd size with self.player1.playerType
                 if self.player1.cows==0:
                 	input("RED LOST")
 
 		# Returning the game_board we might remove when simplifying code, we do it currently just in case we need it
         self.game_board = game_board
 
+
+
+
+
+#############################################################################################################################
+
+
+
+
 # When we start we make an instance of the game with a flat board
-g = game
+g = game    
 g.game_board = _DataStructures.flatboard
 
 # we create player 1 and player 2, the number of cows they can place it the "3" currently for our testing
 #  -> we can adjust this as much as we want for testing
-g.player1 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.RED)
+g.player1 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.RED) 
 g.player2 = _PlayerData.PlayerClass(3, _PlayerData.PlayerType.BLUE)
+
 # The first player ISNT what we set here since the call to Game.main swaps to the other player
 #  -> the "swap" doesnt matter, its mostly for choosing who first is and the same either way
-g.whosTurn = _PlayerData.PlayerType.RED
+    #Whos_turn : who the game deals with individually (Red/Blue)
+g.whosTurn = _PlayerData.PlayerType.RED  
 
 # our main loop is simple
 #   -> it does what is described at the top
