@@ -51,9 +51,9 @@ class game(object):
     def move(self, can_it_fly):
         # Assigned: 
         # pick a spot then move it
-        return _MoveCow.move(self.game_board, False, self.whosTurn)
+        return _MoveCow.move(self.game_board, False, self.whosTurn, self)
 
-    def shoot(self):
+    def shoot(self, player, game_board):
         # Assigned: 
         # kill a cow
         return _ShootCow.shoot(self.game_board, i_got)
