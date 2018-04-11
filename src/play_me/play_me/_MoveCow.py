@@ -23,14 +23,6 @@ def move(game_board, can_it_fly, playertype, self):
         frm = _PickMove.pick_valid_spot(game_board, 2, playertype, _PlayerData.whatName(playertype) + " player's turn to move. Enter a coordinate to move a cow from", _PlayerData.whatName(playertype) + " player, you do not have a cow in that position. Please enter another co ordinate ")
         indx = _DataStructures.one_away[frm]
         to = _PickMove.pick_valid_spot_for_move(game_board, playertype, "Where do you want to move: ", "Where to again: ", frm)
-
-        #availabilitys = [[]]
-        #unitbool = False
-        #while unitbool == False:
-        #    
-        #    to = _PickMove.pick_valid_spot(game_board, 3, playertype, "Now enter a coordinate to move the cow to. (Must be empty and must be one unit away)", _PlayerData.whatName(playertype) + "You cannot move there ")
-        #    if _DataStructures.one_away[_DataStructures.allPositions.index(frm)].count(_DataStructures.allPositions.index(to)) > 0 :        #Tests that player is moving by one unit
-        #        unitbool = True
         game_board[frm] = _PlayerData.PlayerType.NOT
         game_board[to] = playertype
         is_there_mill = _IsMillFor.is_there_a_mill_for(playertype, game_board, _DataStructures.allPositions[to])
