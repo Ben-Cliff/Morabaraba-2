@@ -1,6 +1,5 @@
 import _DataStructures
 
-
 def is_there_a_mill_for(player,game_board, i_got):
 
     ''' 
@@ -15,7 +14,6 @@ def is_there_a_mill_for(player,game_board, i_got):
         -> shoot opposite cow (edit board)
     -> false return game_board unedited
     '''
-
     # Check the mills for this player
     #_DataStructures.mills   #list of mills
     #while loop looking for input compared to ,mills list
@@ -32,24 +30,8 @@ def is_there_a_mill_for(player,game_board, i_got):
         mill_filled = fine_tuned[x]
         val = game_board[mill_filled[0]]
         valb = game_board[mill_filled[1]]
-        valc = game_board[mill_filled[2]]                             #mill formed!
+        valc = game_board[mill_filled[2]]											#mill formed!
         if (val == player) and (valb == player) and (valc == player) :
              return True
-    
 
     return False                                                                               
-
-#Note Interactive message needs to be sent to player to state whether a mill has been found or not
-
-
-         
-
-        
-
-
-
-
-
-    #if mill formed
-    #   return shoot(game_baord, player)
-    #return game_board
