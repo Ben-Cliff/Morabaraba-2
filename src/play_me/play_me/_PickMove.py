@@ -49,7 +49,21 @@ def pick_valid_spot(game_board, option, player, msg, err):      #Options: 1-Empt
             then_got  = input(" ~ " + err);
         
         return _DataStructures.allPositions.index(then_got)
+    
+def pick_valid_spot_for_move(game_board, player, msg, err, pos_from):
+        avail = _DataStructures.one_away[pos_from]
 
+        actual_avail = []
 
+        for x in range(len(avail)):
+            if game_board[avail[x]] == _PlayerData.PlayerType.NOT:
+                actual_avail.append(_DataStructures.allPositions[avail[x]])
 
+        then_got = input("\t" + msg + "\n\t\t")
 
+        while (not then_got in actual_avail):
+            then_got  = input(" ~ " + err);
+            if not (game_board[_DataStructures.allPositions.index(then_got)] == _PlayerData.PlayerType.NOT):
+                then_got = "123123"
+        
+        return _DataStructures.allPositions.index(then_got)

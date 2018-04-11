@@ -224,8 +224,8 @@ g.game_board = _DataStructures.flatboard
 
 # we create player 1 and player 2, the number of cows they can place it the "3" currently for our testing
 #  -> we can adjust this as much as we want for testing
-g.player1 = _PlayerData.PlayerClass(12, _PlayerData.PlayerType.RED) 
-g.player2 = _PlayerData.PlayerClass(12, _PlayerData.PlayerType.BLUE)
+g.player1 = _PlayerData.PlayerClass(1, _PlayerData.PlayerType.RED) 
+g.player2 = _PlayerData.PlayerClass(1, _PlayerData.PlayerType.BLUE)
 
 # The first player ISNT what we set here since the call to Game.main swaps to the other player
 #  -> the "swap" doesnt matter, its mostly for choosing who first is and the same either way
