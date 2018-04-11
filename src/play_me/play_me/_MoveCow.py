@@ -2,6 +2,7 @@ import _PlayerData
 import _IsMillFor
 import _DataStructures
 import _PickMove
+
 def move(game_board, can_it_fly, playertype, self):
     #can_it_fly  boolean check if player has 3 cows
     # pick a spot then move it
