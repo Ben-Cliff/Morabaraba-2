@@ -1,0 +1,1 @@
+run " py morabarabarabarabarabarabarabarabaraba.py" in your console with all this code and python installed
