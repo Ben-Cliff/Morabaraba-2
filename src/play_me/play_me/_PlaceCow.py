@@ -7,7 +7,6 @@ import _PlayerData
 import _PickMove
 import _IsMillFor
 
-
 # Place a cow
 #  -> i_got is the string input we accepted in main and received in this external function call
 #  -> self is the instance of Game we are using/playing with
